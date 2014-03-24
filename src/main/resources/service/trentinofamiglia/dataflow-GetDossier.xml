@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataflow
+xmlns="http://www.example.org/mml-schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
+
+	<variable name="page1" type="org.w3c.dom.Document"/>
+	<variable name="page2" type="org.w3c.dom.Document"/>
+	<variable name="url1" type="String"/>
+	<variable name="url2" type="String"/>
+	<variable name="dossier" type="String"/>
+
+	<httpConnector name="connector" method="GET" encoding="UTF-8"/>
+	
+	<connect name="c1" connector="connector" outputVar="page1" >
+		<properties>
+			<property name="url">
+				<value>"http://dati.trentino.it/dataset/dossier-politiche-familiari-2012-2013"</value>
+			</property>
+		</properties>
+	</connect>		
+	
+	<script outputVar="url1">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>getDossierURL</method>
+		<variables>
+			<value>page1</value>
+		</variables>			
+	</script>		
+	
+	<connect name="c2" connector="connector" outputVar="page2" >
+		<properties>
+			<property name="url">
+				<value>"http://dati.trentino.it/" + url1</value>
+			</property>
+		</properties>
+	</connect>		
+	
+	<script outputVar="url2">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>getDossierXMLURL</method>
+		<variables>
+			<value>page2</value>
+		</variables>			
+	</script>		
+	
+	<connect name="c3" connector="connector" outputVar="dossier" transformer="string">
+		<properties>
+			<property name="url">
+				<value>url2</value>
+			</property>
+		</properties>
+	</connect>	
+
+
+	<script outputVar="output">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>parseDossier</method>
+		<variables>
+			<value>dossier</value>
+		</variables>			
+	</script>		
+	
+</dataflow>

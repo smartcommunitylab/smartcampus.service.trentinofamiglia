@@ -1,0 +1,22 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dataroot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DossierPoliticheFam_IntEco_DataSet" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="IdIntervento"/>
+              <xs:element type="xs:string" name="Titolo" minOccurs="0"/>
+              <xs:element type="xs:string" name="Tipologia_x0020_Intervento"/>
+              <xs:element type="xs:string" name="Descrizione" minOccurs="0"/>
+              <xs:element type="xs:string" name="ChiPuòRichiedere" minOccurs="0"/>
+              <xs:element type="xs:string" name="CosaFare" minOccurs="0"/>
+              <xs:element type="xs:string" name="PerSaperneDiPiù" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:dateTime" name="generated"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

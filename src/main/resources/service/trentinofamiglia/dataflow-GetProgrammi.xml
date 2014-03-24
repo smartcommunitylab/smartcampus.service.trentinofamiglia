@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataflow
+xmlns="http://www.example.org/mml-schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
+
+    <input name="idDistretto" type="String" />
+	<variable name="programmi" type="String"/>
+	
+	<httpConnector name="connector" method="GET" encoding="UTF-8"/>
+	
+	<connect name="c1" connector="connector" outputVar="programmi" transformer="string">
+		<properties>
+			<property name="url">
+				<value>"http://www.trentinofamiglia.it/ezrails/exportOpenData/distrettoInfo?distretto_id=" + idDistretto</value>
+			</property>
+		</properties>
+	</connect>		
+
+	<script outputVar="output">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>parseProgrammi</method>
+		<variables>
+			<value>programmi</value>
+		</variables>		
+	</script>		
+	
+</dataflow>

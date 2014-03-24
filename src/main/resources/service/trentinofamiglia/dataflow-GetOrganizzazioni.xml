@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataflow
+xmlns="http://www.example.org/mml-schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
+
+	<variable name="page1" type="org.w3c.dom.Document"/>
+	<variable name="page2" type="org.w3c.dom.Document"/>
+	<variable name="url1" type="String"/>
+	<variable name="url2" type="String"/>
+	<variable name="organizzazioni" type="String"/>
+
+	<httpConnector name="connector" method="GET" encoding="UTF-8"/>
+	
+	<connect name="c1" connector="connector" outputVar="page1" >
+		<properties>
+			<property name="url">
+				<value>"http://dati.trentino.it/dataset/organizzazioni-certificate-family-audit"</value>
+			</property>
+		</properties>
+	</connect>		
+	
+	<script outputVar="url1">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>getOrganizzazioniURL</method>
+		<variables>
+			<value>page1</value>
+		</variables>			
+	</script>		
+	
+	<connect name="c2" connector="connector" outputVar="page2" >
+		<properties>
+			<property name="url">
+				<value>"http://dati.trentino.it/" + url1</value>
+			</property>
+		</properties>
+	</connect>		
+	
+	<script outputVar="url2">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>getOrganizzazioniCSVURL</method>
+		<variables>
+			<value>page2</value>
+		</variables>			
+	</script>		
+	
+	<connect name="c3" connector="connector" outputVar="organizzazioni" transformer="string">
+		<properties>
+			<property name="url">
+				<value>url2</value>
+			</property>
+		</properties>
+	</connect>	
+
+
+	<script outputVar="output">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>parseOrganizzazioni</method>
+		<variables>
+			<value>organizzazioni</value>
+		</variables>			
+	</script>		
+	
+	<!-- 
+	<foreach item="organization" itemClass="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.OrganizzazioneFamiglia" aggregateVariable="list" outputVar="output" writeAction="append" writeMethod="addAll">
+		<items>organizations</items>
+		<geolocalize outputVar="list" inputVar="organization" writeAction="append" attribute="poi" onError="continue">
+			<poiName>organization.getName()</poiName>
+		</geolocalize>
+	</foreach>
+	 -->
+	
+	
+</dataflow>

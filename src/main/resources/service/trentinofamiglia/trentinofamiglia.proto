@@ -1,0 +1,190 @@
+package eu.trentorise.smartcampus.service.trentinofamiglia.data.message;
+
+import "core.proto";
+
+message EventoFamiglia {
+ required string id = 1;
+ required string title = 2;
+ required string description = 3;
+ required string from = 4;
+ required string to = 5;
+ required string days = 6;
+ required string organization = 7;
+ required string place = 8;
+ required bool certified = 9;
+ optional it.sayservice.platform.core.message.POI poi = 10;
+ 
+}
+
+message OrganizzazioneFamiglia {
+ required string order = 1;
+ required string name = 2;
+ required string status = 3;
+ optional string link = 4;
+ optional it.sayservice.platform.core.message.POI poi = 5;
+}
+
+message DossierFamiglia {
+ required string id = 1;
+ optional string title = 2;
+ optional string type = 3;
+ optional string description = 4;
+ optional string who = 5;
+ optional string what = 6;
+ optional string more = 7;
+}
+
+message DatiManifestazione {
+ required string id = 1;
+ optional string title = 2;
+ optional string description = 3;
+ optional string link = 4;
+ optional string pubDate = 5;
+ }
+
+message StrutturaRicettiva {
+ required string id = 1;
+ required string name = 2;
+ required string stars = 3;
+ required string levelFamily = 4;
+ required string region = 5;
+ required string town = 6;
+ required string bookingHow = 7;
+ required string bookingWhere = 8;
+ required string bookingAddress = 9;
+ required string bookingZipCode = 10;
+ required string bookingTown = 11;
+ required string bookingPhone = 12; 
+ required string bookingEmail = 13;
+ required string bookingLink = 14;
+ required string guide = 15;   
+ required double lat = 16;
+ required double lon = 17; 
+}
+
+message DatiPersonaAudit {
+ required string id = 1;
+ required string name = 2;
+ required string date = 3;
+ required string email = 4;
+ required string type = 5;
+}
+
+message DatiNewMedia {
+ required string name = 1;
+ required string contact = 2;
+ required string role = 3;
+ required string address = 4;
+ required string phone = 5;
+ required string link = 6;
+ required string email = 7;
+ required double lat = 8;
+ required double lon = 9; 
+}
+
+message DatiAllattamento {
+ required string id = 1;
+ required string name = 2;
+ required string address = 3;
+ required string town = 4;
+ optional string area = 5;
+ required double lat = 6;
+ required double lon = 7;
+}
+
+message DatiBabyLittleHome {
+ required string name = 1;
+ required string place = 2;
+ required string address = 3;
+ required string description = 4;
+ required double lat = 5;
+ required double lon = 6;
+}
+
+
+message DatiOrganizzazioniDistretto {
+ required string id = 1;
+ required string title = 2;
+ required string description = 3;
+ required string alias = 4;
+ repeated OrganizzazioneAderente organizzazioni = 5;
+ required double lat = 6;
+ required double lon = 7;
+}
+
+message OrganizzazioneAderente {
+ required string id = 1;
+ required string alias = 2;
+ required string name = 3;
+ required string description = 4;
+ required string address = 5;
+ required string phone = 6;
+ required string fax = 7;
+ required string email = 8;
+ required string link = 9;
+ optional string logo = 10;
+ required double lat = 11;
+ required double lon = 12;
+}
+
+message DatiProgrammiDistretto {
+ required string id = 1;
+ required string title = 2;
+ required string description = 3;
+ required string alias = 4;
+ repeated DatiProgramma programmi = 5;
+ required double lat = 6;
+ required double lon = 7;
+}
+
+message DatiProgramma {
+ required string year = 1;
+ required string link = 2;
+ repeated DatiAttivita attivita = 3;
+}
+
+message DatiAttivita {
+ required string title = 1;
+ required string description = 2;
+ required string contact = 3;
+ required string times = 4;
+ optional string tags = 5;
+ repeated DatiAzione azioni = 6;
+}
+
+message DatiAzione {
+ required string title = 1;
+ required string description = 2;
+ required string goal = 3;
+ required string contact = 4;
+ required string times = 5;
+ optional string tags = 6; 
+}
+
+message EventoGarda {
+ required string title = 1;
+ required string description = 2;
+ required string link = 3;
+ required string shortText = 4;
+ required string place = 5;
+ optional string location = 6;
+ required string category = 7; 
+ required int64 from = 8; 
+ required int64 to = 9;
+ optional double lat = 10;
+ optional double lon = 11;
+ required string price = 12;
+ required string free = 13;    
+}
+
+message OrganizzazioneFamilyTrentino {
+ required string name = 1;
+ required string address = 2;
+ required string phone = 3;
+ required string email = 4;
+ required string web = 5;
+ required string type = 6;
+ optional string fax = 7;
+ optional double lat = 8;
+ optional double lon = 9;
+}

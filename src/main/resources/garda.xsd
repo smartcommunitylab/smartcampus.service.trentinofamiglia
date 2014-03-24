@@ -1,0 +1,45 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="events">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="title"/>
+              <xs:element type="xs:string" name="description"/>
+              <xs:element type="xs:anyURI" name="link"/>
+              <xs:element type="xs:string" name="pubDate"/>
+              <xs:element type="xs:anyURI" name="guid"/>
+              <xs:element type="xs:string" name="testobreve"/>
+              <xs:element type="xs:string" name="luogodisvolgimento"/>
+              <xs:element name="localita">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="item" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="datainizio"/>
+              <xs:element type="xs:string" name="datafine"/>
+              <xs:element type="xs:string" name="categoria"/>
+              <xs:element type="xs:string" name="importante"/>
+              <xs:element name="coordinate">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:float" name="x" minOccurs="0"/>
+                    <xs:element type="xs:float" name="y" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="datatestuale"/>
+              <xs:element type="xs:string" name="ora"/>
+              <xs:element type="xs:string" name="oratestuale"/>
+              <xs:element type="xs:string" name="prezzo"/>
+              <xs:element type="xs:string" name="gratuito"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

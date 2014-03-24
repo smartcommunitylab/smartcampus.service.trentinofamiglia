@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service-definition xmlns="http://www.example.org/interface-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/interface-schema ../interface-schema.xsd ">
+	<interface serviceURI="smartcampus.service.trentinofamiglia">
+		<operation name="GetEventi" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$EventoFamiglia" repeated="true" />
+		</operation>
+		<operation name="GetOrganizzazioni" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$OrganizzazioneFamiglia" repeated="true" />
+		</operation>		
+		<operation name="GetDossier" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DossierFamiglia" repeated="true" />
+		</operation>	
+		<operation name="GetManifestazioni" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiManifestazione" repeated="true" />
+		</operation>
+		<operation name="GetStruttureRicettive" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$StrutturaRicettiva" repeated="true" />
+		</operation>		
+		<operation name="GetPersoneAudit" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiPersonaAudit" repeated="true" />
+		</operation>	
+		<operation name="GetNewMedia" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiNewMedia" repeated="true" />
+		</operation>	
+		<operation name="GetAllattamento" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiAllattamento" repeated="true" />
+		</operation>
+		<operation name="GetBabyLittleHome" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiBabyLittleHome" repeated="true" />
+		</operation>								
+								
+		<operation name="GetDistretti" storable="true">
+		    <parameter name="idDistretto" type="String"/>		
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiOrganizzazioniDistretto" repeated="false" />
+		</operation>
+		<operation name="GetProgrammi" storable="true">
+		    <parameter name="idDistretto" type="String"/>
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$DatiProgrammiDistretto" repeated="false" />
+		</operation>
+		
+		<operation name="GetEventiGarda" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$EventoGarda" repeated="true" />
+		</operation>		
+		<operation name="GetFamilyTrentino" storable="true">
+			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$OrganizzazioneFamilyTrentino" repeated="true" />
+		</operation>			
+		
+	</interface>
+
+	<implementation package="eu.trentorise.smartcampus.service.trentinofamiglia">
+		<operationImpl name="GetEventi"/>
+		<operationImpl name="GetOrganizzazioni"/>
+		<operationImpl name="GetDossier"/>
+		<operationImpl name="GetManifestazioni"/>
+		<operationImpl name="GetStruttureRicettive"/>
+		<operationImpl name="GetPersoneAudit"/>
+		<operationImpl name="GetNewMedia"/>
+		<operationImpl name="GetAllattamento"/>
+		
+		<operationImpl name="GetDistretti"/>
+		<operationImpl name="GetProgrammi"/>
+	</implementation>	
+	
+</service-definition>

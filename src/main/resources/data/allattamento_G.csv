@@ -1,0 +1,80 @@
+"N.","Punto _Allattamento","Indirizzo","Comune","Frazione_Località",latitude,longitude
+"1","Biblioteca Comunale ","via Roma, 55 ","Trento","",46.069668,11.121004
+"2","Biblioteca Comunale ","P.za dell'Argentario, 2 ","Cognola","",46.069692,11.121089
+"3","Biblioteca Comunale ","via Clarina, 2/1 ","Trento","",46.051567,11.128239
+"4","Biblioteca Comunale ","P.za Lionello Groff, 2 ","Gardolo","",46.069692,11.121089
+"5","Biblioteca Comunale ","piazzale Europa, 11 ","Trento","frazione di Madonna Bianca ",46.040286,11.133557
+"6","Biblioteca Comunale ","via Guido Poli, 6 ","Mattarello","",46.005955,11.128609
+"7","Biblioteca Comunale ","via delle Sugarine, 26 ","Meano","",46.126036,11.116885
+"8","Biblioteca Comunale ","via don Tommaso Dallafior, 5 ","Povo","",46.069692,11.121089
+"9","Biblioteca Comunale ","via Val gola, 2 ","Ravina","",46.069692,11.121089
+"10","Biblioteca Comunale ","via Villa, 3 ","Villazzano ","",46.048356,11.145908
+"11","Biblioteca Comunale ","via Revolta, 4 ","Sopramonte ","",46.071847,11.059756
+"12","Farmacia Comunale San Camillo ","Via Giovanelli, 5 ","Trento","",46.065527,11.132008
+"13","Farmacia Comunale Pio X ","Via S. Pio X, 77 ","Trento","",46.054138,11.120733
+"14","Farmacia Comunale San Donà ","Loc. San Donà, 50 ","Trento","",46.071437,11.140336
+"15","Farmacia Comunale Madonna Bianca ","Via Menguzzato, 85 ","Trento","",46.040353,11.131771
+"16","Farmacia Comunale Piedicastello ","Via Brescia, 19/A ","Trento","",46.070708,11.112184
+"17","Farmacia Comunale Cognola ","Piazza dell’Argentario, 10 ","Trento","",46.069692,11.121089
+"18","Farmacia Gallo ","Via Mantova, 51 ","Trento","",46.067423,11.124198
+"19","Farmacia Ferri ","Via Formigheta, 1 ","Martignano ","",46.069692,11.121089
+"20","Pasticceria S.Vigilio ","Via S. Vigilio, 10 ","Trento","",46.066596,11.122414
+"21","Prenatal ","Via S. Pietro, 6-7 ","Trento","",46.063532,11.24502
+"22","Il libraio ","C.so 3 Novembre, 10 ","Trento","",46.061005,11.124912
+"23","Poker d’Assi ","Via Gerola, 25 ","Trento","",46.05864,11.133084
+"24","Libreria Ancora  Artigianelli ","Via S. Croce, 35 ","Trento","",46.064458,11.12346
+"25","Bar Pasticceria Viennese ","C.so 3 Novembre, 2 ","Trento","",46.061005,11.124912
+"26","Koinè Spazio incontro genitori bambini ","Via Palermo, 9/11 ","Trento","",46.057592,11.127191
+"27","Punto Famiglie ascolto e promozione ","C.so 3 Novembre, 164 ","Trento","",46.059028,11.126677
+"28","Erboristeria Starbene ","Via 24 maggio, 4 ","Trento","",46.064131,11.121645
+"29","Servizi all’infanzia Comune di Trento ","Via Alfieri, 6 ","Trento","",45.93831,11.11247
+"30","Casa Mamma Bambino ","Via Marchetti, 1 ","Trento","",45.542868,11.283057
+"31","Centro genitori e bambini ","Via del Torrione, 10 ","Trento","",46.065342,11.121974
+"32","Ecosportello ","Via Torre Verde, 34 ","Trento","",46.070836,11.123427
+"33","T.Riciclo ","Via del Suffragio, 57 ","Trento","",46.070856,11.124905
+"34","Il Giardino delle Spezie ","Via Nazionale 109, ","Padergnone"," Località due Laghi ",46.28751,11.566097
+"35","Bazar Moser sas ","P.zza Libertà, 14 ","Trento"," frazione di Gardolo",46.159002,10.766072
+"36","Negozio BEBE' D'AMOUR ","Via Arturo de Varda, 10 ","Mezzolombardo","",46.069692,11.121089
+"37","Farmacia Comunale S. Uldarico ","P.zza C. Battisti n° 28 ","Lavis","",46.068987,11.123791
+"38","Farmacia Romani ","Via Segantini, 1","Lavis","",45.9602,10.91197
+"39","Libreria "La pulce d'acqua" di Grazioli Elena ","Via Roma, 7","Lavis","",46.069611,11.118983
+"40","Latte e Coccole Consultorio Familiare di Mezzolombardo ","Via D.Chiesa, 6","Mezzolobardo ","",46.21396,11.09606
+"41","M.P. Farma S.r.l. ","via Pomeranos, 28","Mattarello ","",46.014134,11.132099
+"42","Farmacia Comunale Besenllo 61","Via Roma, 6","Besenello","",46.069528,11.119054
+"43","Oki Doki ","Via Gramsci, 2/3 ","Trento ","",46.052977,11.128348
+"44","Centro Figurella ","Via Milano, 25 ","Trento ","",46.061323,11.128335
+"45","Caffè Bar Agorà ","P.za Primo Maggio, 2 ","Ravina ","",46.32921,11.02335
+"46","Bar Ci Gusta ","Vai Garibaldi, 27 ","Trento","",46.067026,11.122181
+"47","Farmacia Comunale 1 ","Via Paoli, 19 ","Rovereto","",45.892494,11.040144
+"48","Farmacia Comunale 2 ","Via Benacense, 43 ","Rovereto","",45.87849,11.03359
+"49","Farmacia Comunale 3 ","Viale Trento, 33/2 ","Rovereto","",45.90147,11.04234
+"50","Farmacia Comunale 4 ","Via Cavalieri, 4/a ","Isera","",45.884745,11.008458
+"51","Farmacia San Marco ","Piazza delle Erbe, 17 ","Rovereto","",46.21339,11.08867
+"52","Farmacia Comunale S. Rocco ","Via 3 Novembre, 7 ","Volano","",46.155797,11.153558
+"53","Farmacia Comunale Gian Pio Adami ","Via 3 Novembre, 10 ","Pomarolo","",45.899828,10.724956
+"54","Farmacia Paolo De Probizer ","Via XXV aprile, 28 ","Villalagarina","",45.919315,11.158407
+"55","Farmacia Comunale 61  ","Via Roma, 6","Besenello","",46.069528,11.119054
+"56","Giardino di Luce ","P.zza C. Battisti, 1 ","Mori","",46.098242,11.044128
+"57","La Pineta  Tavola calda Pizzeria ","","Brentonico","località S.Caterina ",45.821513,10.95885
+"58","BRUMS Rovereto ","Via Tartarotti, 44 ","Rovereto","",46.002073,11.24422
+"59","Farmacia Comunale S.Giuseppe ","Viale Trento, 96 ","Riva del Garda","",45.89474,10.84973
+"60","Farmacia Comunale Oltresarca ","Viale Stazione, 24 ","Bolognano di Arco","",45.91135,10.90117
+"61","Farmacia dr. A Folletto ","Via Cassoni, 3 Pieve di ","Ledro","",45.889349,10.730726
+"62","Amb. pediatrico Dott.ssa Bertagnolli Elisabetta ","Via Galas, 41 ","Arco","",45.889335,10.847242
+"63","Bar Pasticceria Maroni ","Via S.Maria, 2 ","Riva del Garda","",45.91688,11.06275
+"64","Farmacia Comunale n°41 ","Via Borgo Nuovo n°39 ","Pietramurata","",46.017762,10.94197
+"65","Farmacia S. Cristoforo ","Viale Europa, 10 ","Pergine Valsugana","San Cristoforo al Lago",45.625382,11.698472
+"66","Parafarmacia Paolo Darma ","Via Tamarisi Shop Center ","Valsugana Pergine","",46.069692,11.121089
+"67","Farmacia Betti dr. Paolo ","P.zza S.Maria, 4 ","Civezzano","",46.08982,11.18232
+"68","Farmacia dott. Teso ","Via Paradiso, 2 ","Telve","",46.06677,11.24031
+"69","Farmacia Adriana Zonta ","Via Roma 52 ","Mezzano","",46.069528,11.12055
+"70","Farmacia Vanoi nr. 09301 ","Via Roma ","Canal S.Bovo","",46.069544,11.119853
+"71","Farmacia alla Madonna","Via Guadagnini, 28 ","Fiera di Primiero","",46.175623,11.830417
+"72","Bazar Sartori ","Via Pennella, 6 ","Pergine","",46.060395,11.240067
+"73","Farmacia Morelli ","Via C.Battisti, 91 ","Baselga di Pinè","",46.00923,11.29999
+"74","Libreria Athena ","Via C. Battisti, 12 ","Pergine","",45.629888,11.694502
+"75","La Bottega dei Semplici ","Via Crivelli, 49 ","Pergine","",46.061569,11.241726
+"76","Il Germoglio ","Via Guadagnini, 25 ","Fiera di Primiero","",46.175789,11.829886
+"77","Erboristeria Erica ","Via Garibaldi, 27 ","Fiera di Primiero","",46.067026,11.122181
+"78","Servizio Biblioteca Intercomun. di Primiero ","Via Fiume, 6 ","Fiera di Primiero","",46.063631,11.131422
+"79","Biblioteca Comunale Tevle Valsugana ","P.le Delpero, 2 ","Telve Valsugana","",46.069692,11.121089

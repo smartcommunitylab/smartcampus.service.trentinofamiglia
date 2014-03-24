@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataflow
+xmlns="http://www.example.org/mml-schema"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
+
+	<variable name="eventi" type="String"/>
+	
+	<httpConnector name="connector" method="GET" encoding="UTF-8"/>
+	
+	<connect name="c1" connector="connector" outputVar="eventi" transformer="string">
+		<properties>
+			<property name="url">
+				<value>"http://www.gardatrentino.it/it/xml_ev_prossimi/"</value>
+			</property>
+		</properties>
+	</connect>		
+
+	<script outputVar="output">
+		<className>eu.trentorise.smartcampus.service.trentinofamiglia.scripts.TrentinoFamigliaScript</className>
+		<method>parseEventiGarda</method>
+		<variables>
+			<value>eventi</value>
+		</variables>		
+	</script>		
+	
+</dataflow>

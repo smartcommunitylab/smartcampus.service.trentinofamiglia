@@ -1,0 +1,103 @@
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Distretto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:anyURI" name="Url_alias"/>
+        <xs:element type="xs:string" name="Titolo"/>
+        <xs:element type="xs:string" name="Descrizione"/>
+        <xs:element name="Coordinate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:float" name="Latitudine"/>
+              <xs:element type="xs:float" name="Longitudine"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OrganizzazioniAderenti">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Aderente" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:anyURI" name="Url_alias"/>
+                    <xs:element type="xs:string" name="Nome"/>
+                    <xs:element type="xs:string" name="Abstract"/>
+                    <xs:element type="xs:string" name="Indirizzo"/>
+                    <xs:element type="xs:string" name="Telefono"/>
+                    <xs:element type="xs:string" name="Fax"/>
+                    <xs:element type="xs:string" name="Email"/>
+                    <xs:element type="xs:anyURI" name="SitoWeb"/>
+                    <xs:element type="xs:string" name="Logo"/>
+                    <xs:element name="Coordinate">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:float" name="Latitudine"/>
+                          <xs:element type="xs:float" name="Longitudine"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="MarchioAudit"/>
+                    <xs:element type="xs:string" name="MarchioFamily"/>
+                    <xs:element type="xs:string" name="CategoriaMarchioFamily"/>
+                    <xs:element type="xs:string" name="Coordinatore"/>
+                    <xs:element type="xs:string" name="Proponente"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProgrammiDiLavoro">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProgrammaDiLavoro" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:anyURI" name="Url_alias"/>
+                    <xs:element name="AttivitaDistretto">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Attivita" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="Titolo"/>
+                                <xs:element type="xs:string" name="Descrizione"/>
+                                <xs:element type="xs:string" name="Referenti"/>
+                                <xs:element type="xs:string" name="Tempi"/>
+                                <xs:element type="xs:string" name="Tags"/>
+                                <xs:element name="Azioni">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Azione" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="Titolo"/>
+                                            <xs:element type="xs:string" name="Descrizione"/>
+                                            <xs:element type="xs:string" name="Obiettivo"/>
+                                            <xs:element type="xs:string" name="Referenti"/>
+                                            <xs:element type="xs:string" name="Tempi"/>
+                                            <xs:element type="xs:string" name="Tags"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="anno"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
