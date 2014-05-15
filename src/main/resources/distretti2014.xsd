@@ -1,0 +1,225 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="OrganizzazioniEGFList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Organizzazione" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Tipo"/>
+              <xs:element name="Tipo_organizzazione">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="id" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:anyURI" name="Url"/>
+              <xs:element type="xs:string" name="Nome"/>
+              <xs:element type="xs:string" name="Indirizzo"/>
+              <xs:element name="Coordinate">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Latitudine"/>
+                    <xs:element type="xs:string" name="Longitudine"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Comune">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Nome"/>
+                    <xs:element name="Coordinate">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:float" name="Latitudine"/>
+                          <xs:element type="xs:float" name="Longitudine"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="Telefono_fisso"/>
+              <xs:element type="xs:string" name="Telefono_cellulare"/>
+              <xs:element type="xs:string" name="Fax"/>
+              <xs:element type="xs:string" name="Descrizione_sintetica"/>
+              <xs:element type="xs:string" name="Sito_web"/>
+              <xs:element type="xs:string" name="Immagine_logo_sito_web"/>
+              <xs:element name="AttivitaEstateGiovaniEFamigliaList">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="AttivitaEstateGiovaniEFamiglia" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Organizzazione_REF">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="Nome"/>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="id" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Tipo"/>
+                          <xs:element type="xs:anyURI" name="Url"/>
+                          <xs:element type="xs:string" name="Nome"/>
+                          <xs:element type="xs:string" name="Descrizione_sintetica"/>
+                          <xs:element type="xs:string" name="Descrizione_estesa"/>
+                          <xs:element type="xs:string" name="Data_di_inizio"/>
+                          <xs:element type="xs:string" name="Data_di_fine"/>
+                          <xs:element type="xs:string" name="Date_provvisorie"/>
+                          <xs:element type="xs:string" name="Orari_periodicita_turni_di_svolgimento"/>
+                          <xs:element name="Mesi_svolgimento">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Mese" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Sede"/>
+                          <xs:element name="Tipo_attivita">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="id" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Frequenza">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="id" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Giorni_settimana">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Giorno" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Comuni">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="Comune" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="Nome"/>
+                                      <xs:element name="Coordinate">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="Latitudine"/>
+                                            <xs:element type="xs:string" name="Longitudine"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="id" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Tipo_costo">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="id" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Specifiche_sul_costo"/>
+                          <xs:element name="Fascia_di_eta">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Fascia" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Note_eta_destinatari"/>
+                          <xs:element name="Vincolo_di_residenza">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="id" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="marchio_Family_in_Trentino"/>
+                          <xs:element type="xs:string" name="Note_generiche"/>
+                          <xs:element type="xs:string" name="Immagine_attivita"/>
+                          <xs:element name="Referenti">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Referente" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="Nome"/>
+                                      <xs:element type="xs:string" name="Telefono"/>
+                                      <xs:element type="xs:string" name="Email"/>
+                                      <xs:element type="xs:string" name="Note"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Modalita_tempi_iscrizione"/>
+                          <xs:element type="xs:string" name="Stato_attuale_iscrizioni"/>
+                          <xs:element name="Modulo_di_iscrizione">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="NomeFile" minOccurs="0"/>
+                                <xs:element type="xs:string" name="Dimensione" minOccurs="0"/>
+                                <xs:element type="xs:anyURI" name="FileUrl" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Punti_di_erogazione"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="id" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="id" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

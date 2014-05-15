@@ -13,8 +13,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -33,7 +31,6 @@ import au.com.bytecode.opencsv.CSVReader;
 
 import com.google.protobuf.Message;
 
-import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia;
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.DatiAllattamento;
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.DatiAttivita;
 import eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.DatiAzione;
@@ -56,13 +53,13 @@ import eu.trentorise.smartcampus.service.trentinofamiglia.distretti.jaxb.Distret
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti.jaxb.Distretto.ProgrammiDiLavoro.ProgrammaDiLavoro;
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti.jaxb.Distretto.ProgrammiDiLavoro.ProgrammaDiLavoro.AttivitaDistretto.Attivita;
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti.jaxb.Distretto.ProgrammiDiLavoro.ProgrammaDiLavoro.AttivitaDistretto.Attivita.Azioni.Azione;
+import eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList;
+import eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList.Organizzazione;
+import eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList.Organizzazione.AttivitaEstateGiovaniEFamigliaList.AttivitaEstateGiovaniEFamiglia;
 import eu.trentorise.smartcampus.service.trentinofamiglia.dossier.jaxb.Dataroot.DossierPoliticheFamIntEcoDataSet;
 import eu.trentorise.smartcampus.service.trentinofamiglia.garda.jaxb.Events;
 import eu.trentorise.smartcampus.service.trentinofamiglia.garda.jaxb.Events.Item;
-import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot;
-import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot.TABOrg;
 import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot.TABOrg.TABAttività;
-import eu.trentorise.smartcampus.service.trentinofamiglia.jaxb.Dataroot.TABOrg.TABAttività.TAbTerritorio;
 import eu.trentorise.smartcampus.service.trentinofamiglia.rss.jaxb.Guid;
 import eu.trentorise.smartcampus.service.trentinofamiglia.rss.jaxb.Rss;
 import eu.trentorise.smartcampus.service.trentinofamiglia.rss.jaxb.RssItem;
@@ -70,48 +67,35 @@ import eu.trentorise.smartcampus.service.trentinofamiglia.rss.jaxb.RssItem;
 public class TrentinoFamigliaScript {
 
 	public List<Message> parseEstate(String s) throws Exception {
-		try {
-			List<Message> result = new ArrayList<Message>();
+		List<Message> result = new ArrayList<Message>();
+		
+		JAXBContext jc = JAXBContext.newInstance("eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb");
+		Unmarshaller u = jc.createUnmarshaller();
 
-			JAXBContext jc = JAXBContext.newInstance("eu.trentorise.smartcampus.service.trentinofamiglia.jaxb");
-			Unmarshaller u = jc.createUnmarshaller();
-
-			Dataroot dataroot = (Dataroot) u.unmarshal(new StringReader(s));
-
-			for (TABOrg org : dataroot.getTABOrg()) {
-				for (TABAttività ta : org.getTABAttività()) {
-					Map<String, EventoFamiglia> map = new TreeMap<String, Trentinofamiglia.EventoFamiglia>();
-					for (TAbTerritorio tt : ta.getTAbTerritorio()) {
-						if (!map.containsKey(tt.getComuni())) {
-							EventoFamiglia.Builder builder = EventoFamiglia.newBuilder();
-							builder.setId(ta.getNomeX0020Attività() + "@" + org.getNomeOrganizzazione());
-							builder.setTitle(ta.getNomeX0020Attività());
-							builder.setDescription(buildDescription(ta));
-							builder.setFrom(ta.getDataX0020InizioX0020PeriodoX0020Attività());
-							builder.setTo(ta.getDataX0020FineX0020PeriodoX0020Attività());
-							builder.setDays(ta.getLX0027AttivitàX0020SiX0020SvolgeX0020NeiX0020SeguentiX0020Giorni());
-							builder.setOrganization(org.getNomeOrganizzazione());
-							builder.setPlace(tt.getComuni());
-							String certified = ta.getLX0027AttivitàX0020ÈX0020MarchiataX0020X0022FamilyX0020InX0020TrentinoX0022X003F();
-							builder.setCertified(certified.startsWith("s") ? true : false);
-							EventoFamiglia event = builder.build();
-
-							map.put(tt.getComuni(), event);
-						}
-					}
-					result.addAll(map.values());
-				}
+		OrganizzazioniEGFList orgList = (OrganizzazioniEGFList) u.unmarshal(new StringReader(s));			
+		
+		for (Organizzazione org: orgList.getOrganizzazione()) {
+			for (AttivitaEstateGiovaniEFamiglia att: org.getAttivitaEstateGiovaniEFamigliaList().getAttivitaEstateGiovaniEFamiglia()) {
+				EventoFamiglia.Builder builder = EventoFamiglia.newBuilder();
+				
+				builder.setTitle(removeCR(att.getNome()));
+				builder.setDescription(removeCR(att.getDescrizioneEstesa()));
+				builder.setFrom(removeCR(att.getDataDiInizio()));
+				builder.setTo(removeCR(att.getDataDiFine()));
+				builder.setDays(removeCR(att.getOrariPeriodicitaTurniDiSvolgimento()));
+				builder.setOrganization(removeCR(org.getNome()));
+				builder.setPlace(removeCR(att.getSede()));
+				builder.setId(att.getId());
+				builder.setCertified(false);
+				
+				
+				result.add(builder.build());
 			}
-
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
 		}
+		return result;
+}
 
-	}
-
-	private String buildDescription(TABAttività ta) {
+	protected String buildDescription(TABAttività ta) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<p>" + ta.getDescrizioneX0020SinteticaX0020DellX0027Attività() + "</p>");
 		sb.append("<p>Orari/Periodicità/Turni: " + checkLen(ta.getOrariX0020X002FX0020PeriodicitàX002FX0020TurniX0020DiX0020Svolgimento()) + "</p>");
@@ -128,7 +112,7 @@ public class TrentinoFamigliaScript {
 		return sb.toString();
 	}
 
-	private String checkLen(String s) {
+	protected String checkLen(String s) {
 		if (s.length() <= 1) {
 			return "-";
 		} else {
@@ -299,7 +283,7 @@ public class TrentinoFamigliaScript {
 					builder.setLon(Double.parseDouble(words[8]));
 					result.add(builder.build());
 				} catch (Exception e) {
-					e.printStackTrace();
+//					e.printStackTrace();
 				}
 			}
 
@@ -526,7 +510,7 @@ public class TrentinoFamigliaScript {
 		return "";
 	}
 
-	private POI buildOrganizzazioniPOI(String[] words) {
+	protected POI buildOrganizzazioniPOI(String[] words) {
 		POI.Builder poiBuilder = POI.newBuilder();
 
 		int pos = Integer.parseInt(words[0].replace("\"", ""));
@@ -766,15 +750,15 @@ public class TrentinoFamigliaScript {
 		return result;
 	}
 	
-	private static String removeSpaces(String s) {
+	protected static String removeSpaces(String s) {
 		return s.replaceAll("[\\s]+", " ").trim();
 	}
 
-	private static String removeCR(String s) {
+	protected static String removeCR(String s) {
 		return s.replaceAll("^[\\n]+", "");
 	}
 
-	private static String transformLatLong(String ll) {
+	protected static String transformLatLong(String ll) {
 		String s = ll.replaceFirst("\\.", ",").replaceFirst("\\.", "").replaceAll(",", ".");
 		return s;
 	}
