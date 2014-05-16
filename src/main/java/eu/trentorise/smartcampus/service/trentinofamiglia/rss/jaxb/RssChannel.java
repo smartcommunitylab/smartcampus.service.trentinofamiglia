@@ -78,25 +78,25 @@ import org.w3c.dom.Element;
 public class RssChannel {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "managingEditor", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "pubDate", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "language", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "link", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "webMaster", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "ttl", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "cloud", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "lastBuildDate", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "docs", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "skipDays", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "description", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "title", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "image", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "generator", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "skipHours", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "rating", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "copyright", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "category", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "textInput", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "managingEditor", type = JAXBElement.class),
+        @XmlElementRef(name = "pubDate", type = JAXBElement.class),
+        @XmlElementRef(name = "language", type = JAXBElement.class),
+        @XmlElementRef(name = "link", type = JAXBElement.class),
+        @XmlElementRef(name = "webMaster", type = JAXBElement.class),
+        @XmlElementRef(name = "ttl", type = JAXBElement.class),
+        @XmlElementRef(name = "cloud", type = JAXBElement.class),
+        @XmlElementRef(name = "lastBuildDate", type = JAXBElement.class),
+        @XmlElementRef(name = "docs", type = JAXBElement.class),
+        @XmlElementRef(name = "skipDays", type = JAXBElement.class),
+        @XmlElementRef(name = "description", type = JAXBElement.class),
+        @XmlElementRef(name = "title", type = JAXBElement.class),
+        @XmlElementRef(name = "image", type = JAXBElement.class),
+        @XmlElementRef(name = "generator", type = JAXBElement.class),
+        @XmlElementRef(name = "skipHours", type = JAXBElement.class),
+        @XmlElementRef(name = "rating", type = JAXBElement.class),
+        @XmlElementRef(name = "copyright", type = JAXBElement.class),
+        @XmlElementRef(name = "category", type = JAXBElement.class),
+        @XmlElementRef(name = "textInput", type = JAXBElement.class)
     })
     @XmlAnyElement(lax = true)
     protected List<Object> titleOrLinkOrDescription;

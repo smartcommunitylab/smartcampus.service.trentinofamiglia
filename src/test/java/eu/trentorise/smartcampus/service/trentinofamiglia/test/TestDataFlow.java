@@ -34,7 +34,7 @@ public class TestDataFlow extends TestCase {
 //		for (String id: ids) {
 //		parameters.put("idDistretto", id);
 //		System.out.println(id);
-		Map<String, Object> out1 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetOrganizzazioni", new GetOrganizzazioniDataFlow(), parameters);
+		Map<String, Object> out1 = helper.executeDataFlow("smartcampus.service.trentinofamiglia", "GetEventi", new GetEventiDataFlow(), parameters);
 		List<Message> data1 = (List<Message>)out1.get("data");
 		for (Message msg: data1) {
 //			System.err.println((((DatiDistretto)msg)).getOrganizzazioniList());

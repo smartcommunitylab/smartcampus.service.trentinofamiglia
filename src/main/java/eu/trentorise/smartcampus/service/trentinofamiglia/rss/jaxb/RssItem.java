@@ -65,16 +65,16 @@ import org.w3c.dom.Element;
 public class RssItem {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "comments", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "source", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "title", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "author", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "category", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "pubDate", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "link", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "guid", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "description", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "enclosure", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "comments", type = JAXBElement.class),
+        @XmlElementRef(name = "source", type = JAXBElement.class),
+        @XmlElementRef(name = "title", type = JAXBElement.class),
+        @XmlElementRef(name = "author", type = JAXBElement.class),
+        @XmlElementRef(name = "category", type = JAXBElement.class),
+        @XmlElementRef(name = "pubDate", type = JAXBElement.class),
+        @XmlElementRef(name = "link", type = JAXBElement.class),
+        @XmlElementRef(name = "guid", type = JAXBElement.class),
+        @XmlElementRef(name = "description", type = JAXBElement.class),
+        @XmlElementRef(name = "enclosure", type = JAXBElement.class)
     })
     @XmlAnyElement(lax = true)
     protected List<Object> titleOrDescriptionOrLink;

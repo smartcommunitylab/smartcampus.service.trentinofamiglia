@@ -2401,13 +2401,12 @@ public class OrganizzazioniEGFList {
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "content"
+                    "comune"
                 })
                 public static class Comuni {
 
-                    @XmlElementRef(name = "Comune", type = JAXBElement.class, required = false)
-                    @XmlMixed
-                    protected List<Serializable> content;
+                    @XmlElement(name = "Comune")
+                    protected List<Comune> comune;
 
                     /**
                      * Gets the value of the content property.
@@ -2432,11 +2431,11 @@ public class OrganizzazioniEGFList {
                      * 
                      * 
                      */
-                    public List<Serializable> getContent() {
-                        if (content == null) {
-                            content = new ArrayList<Serializable>();
+                    public List<Comune> getComune() {
+                        if (comune == null) {
+                            comune = new ArrayList<Comune>();
                         }
-                        return this.content;
+                        return this.comune;
                     }
 
 
@@ -3194,9 +3193,9 @@ public class OrganizzazioniEGFList {
                 public static class ModuloDiIscrizione {
 
                     @XmlElementRefs({
-                        @XmlElementRef(name = "FileUrl", type = JAXBElement.class, required = false),
-                        @XmlElementRef(name = "NomeFile", type = JAXBElement.class, required = false),
-                        @XmlElementRef(name = "Dimensione", type = JAXBElement.class, required = false)
+                        @XmlElementRef(name = "FileUrl", type = JAXBElement.class),
+                        @XmlElementRef(name = "NomeFile", type = JAXBElement.class),
+                        @XmlElementRef(name = "Dimensione", type = JAXBElement.class)
                     })
                     @XmlMixed
                     protected List<Serializable> content;

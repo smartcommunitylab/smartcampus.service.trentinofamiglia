@@ -64,7 +64,7 @@ xsi:schemaLocation="http://www.example.org/mml-schema mml-schema.xsd ">
 	<foreach item="event" itemClass="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia.EventoFamiglia" aggregateVariable="list" outputVar="output" writeAction="append" writeMethod="addAll">
 		<items>events</items>
 		<geolocalize outputVar="list" inputVar="event" writeAction="append" attribute="poi" onError="continue">
-			<poiName>event.getPlace()</poiName>
+			<poiName>event.getComune()</poiName>
 		</geolocalize>
 	</foreach>		
 	

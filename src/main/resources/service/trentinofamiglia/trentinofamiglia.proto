@@ -12,8 +12,8 @@ message EventoFamiglia {
  required string organization = 7;
  required string place = 8;
  required bool certified = 9;
- optional it.sayservice.platform.core.message.POI poi = 10;
- 
+ required string comune = 10;
+ optional it.sayservice.platform.core.message.POI poi = 11;
 }
 
 message OrganizzazioneFamiglia {

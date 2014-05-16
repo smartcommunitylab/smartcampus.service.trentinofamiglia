@@ -12,7 +12,9 @@ import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -56,6 +58,7 @@ import eu.trentorise.smartcampus.service.trentinofamiglia.distretti.jaxb.Distret
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList;
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList.Organizzazione;
 import eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList.Organizzazione.AttivitaEstateGiovaniEFamigliaList.AttivitaEstateGiovaniEFamiglia;
+import eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList.Organizzazione.Comune;
 import eu.trentorise.smartcampus.service.trentinofamiglia.dossier.jaxb.Dataroot.DossierPoliticheFamIntEcoDataSet;
 import eu.trentorise.smartcampus.service.trentinofamiglia.garda.jaxb.Events;
 import eu.trentorise.smartcampus.service.trentinofamiglia.garda.jaxb.Events.Item;
@@ -85,11 +88,19 @@ public class TrentinoFamigliaScript {
 				builder.setDays(removeCR(att.getOrariPeriodicitaTurniDiSvolgimento()));
 				builder.setOrganization(removeCR(org.getNome()));
 				builder.setPlace(removeCR(att.getSede()));
-				builder.setId(att.getId());
-				builder.setCertified(false);
 				
-				
-				result.add(builder.build());
+				if (att.getComuni() == null || att.getComuni().getComune() == null || att.getComuni().getComune().isEmpty()) {
+					System.err.println("Missing comune in "+att.getNome());
+					continue;
+				} 
+				builder.setCertified(att.getMarchioFamilyInTrentino().startsWith("s"));
+				for (eu.trentorise.smartcampus.service.trentinofamiglia.distretti2014.jaxb.OrganizzazioniEGFList.Organizzazione.AttivitaEstateGiovaniEFamigliaList.AttivitaEstateGiovaniEFamiglia.Comuni.Comune c : att.getComuni().getComune()) {
+					builder.setId(c.getNome()+"_"+att.getId());
+					builder.setComune(c.getNome());
+					EventoFamiglia ef = builder.build(); 
+					result.add(ef);
+					builder =  EventoFamiglia.newBuilder(ef); 
+				}
 			}
 		}
 		return result;
