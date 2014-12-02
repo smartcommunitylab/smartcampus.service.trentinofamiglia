@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<service-definition xmlns="http://www.example.org/interface-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/interface-schema ../interface-schema.xsd ">
+<service-definition xmlns="http://smart.sayservice.it/schema/interface-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://smart.sayservice.it/schema/interface-schema http://smart.sayservice.it/schema/interface-schema-1.7.xsd ">
 	<interface serviceURI="smartcampus.service.trentinofamiglia">
 		<operation name="GetEventi" storable="true">
 			<output type="eu.trentorise.smartcampus.service.trentinofamiglia.data.message.Trentinofamiglia$EventoFamiglia" repeated="true" />
